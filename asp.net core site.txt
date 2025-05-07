@@ -1,0 +1,22 @@
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapGet("/", async context =>
+{
+    context.Response.ContentType = "text/html";
+    await context.Response.WriteAsync(@"
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset='UTF-8'>
+            <title>سایت ساده من</title>
+        </head>
+        <body>
+            <h1>سلام دنیا!</h1>
+            <p>این یک سایت ساده با ASP.NET Core است.</p>
+        </body>
+        </html>
+    ");
+});
+
+app.Run();
